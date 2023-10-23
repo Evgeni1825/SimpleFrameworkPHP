@@ -10,7 +10,9 @@ class Router implements RouterInterface
 
         foreach($routes as $route){
             if ($route['uri'] === $uri){
-                echo $route['html'];
+                $controller = new $route['controller']();
+                $method = $route['method'];
+                $controller->$method();
             }
         }
     }

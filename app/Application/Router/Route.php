@@ -6,11 +6,12 @@ class Route implements RouteInterface
 {
     private static array $routes;
 
-    public static function page(string $uri, string $html): void
+    public static function page(string $uri, string $controller, string $method): void
     {
         self::$routes[] = [
             'uri' => $uri,
-            'html' => $html
+            'controller' => $controller,
+            'method' => $method
         ];
     }
 
