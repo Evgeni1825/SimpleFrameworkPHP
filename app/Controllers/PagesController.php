@@ -6,16 +6,16 @@ class PagesController
 {
     public function home() : void
     {
-        echo '<h2>Home page</h2>';
+        include __DIR__ . '/../../views/pages/home.php';
     }
 
     public function about() : void
     {
-        echo '<h2>About page</h2>';
+        include __DIR__ . '/../../views/pages/about.php';
     }
 
     public function contacts() : void
     {
-        echo '<h2>Contacts page</h2>';
+        include __DIR__ . '/../../views/pages/contacts.php';
     }
 }
