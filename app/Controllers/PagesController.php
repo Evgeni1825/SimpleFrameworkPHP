@@ -1,21 +1,22 @@
 <?php
 
 namespace App\Controllers;
+use App\Application\Views\View;
 
 class PagesController
 {
     public function home() : void
     {
-        include __DIR__ . '/../../views/pages/home.php';
+        View::show('pages/home');
     }
 
     public function about() : void
     {
-        include __DIR__ . '/../../views/pages/about.php';
+        View::show('pages/about');
     }
 
     public function contacts() : void
     {
-        include __DIR__ . '/../../views/pages/contacts.php';
+        View::show('pages/contacts');
     }
 }
