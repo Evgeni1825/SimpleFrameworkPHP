@@ -12,7 +12,7 @@ class App
     {
        try {
              $this->handle();
-       } catch (\ViewNotFoundException $exception)
+       } catch (ViewNotFoundException $exception)
        {
             dd($exception->getMessage());
        }

@@ -10,7 +10,7 @@ class View implements ViewInterface
     {
         $path = __DIR__ . "/../../../views/$view.view.php";
         if (!file_exists($path)){
-            throw new \ViewNotFoundException("View $view not found.");
+            throw new ViewNotFoundException("View $view not found.");
         }
         include $path;
     }
