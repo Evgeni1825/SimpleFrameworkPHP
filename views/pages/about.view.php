@@ -6,7 +6,7 @@
 <html lang="<?= Config::get('app.lang')?>">
 <head>
     <?php View::component('head'); ?>
-    <title>About page</title>
+    <title><?=$title ?></title>
 </head>
 <body>
     <main>

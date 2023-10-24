@@ -8,16 +8,22 @@ class PagesController
 {
     public function home() : void
     {
-        View::show('pages/home');
+        View::show('pages/home',[
+            'title'=>'Home'
+        ]);
     }
 
     public function about() : void
     {
-        View::show('pages/about');
+        View::show('pages/about',[
+            'title'=>'About'
+        ]);
     }
 
     public function contacts() : void
     {
-        View::show('pages/contacts');
+        View::show('pages/contacts',[
+            'title'=>'Contacts'
+        ]);
     }
 }
