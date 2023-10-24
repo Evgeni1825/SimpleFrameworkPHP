@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'exception_view' => 'app/exception'
+    'exception_view' => 'app/exception',
+    'lang' => 'ru'
 ];

@@ -1,8 +1,9 @@
 <?php
-use App\Application\Views\View; 
+    use App\Application\Views\View; 
+    use App\Application\Config\Config;
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<?= Config::get('app.lang')?>">
 <head>
    <?php View::component('head'); ?>
     <title>Home page</title>
