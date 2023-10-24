@@ -14,5 +14,8 @@
     ],
     "require-dev": {
         "larapack/dd": "^1.1"
+    },
+    "require": {
+        "codin/dot": "^0.1.2"
     }
 }
