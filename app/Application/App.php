@@ -4,6 +4,7 @@ namespace App\Application;
 
 use App\Application\Router\Route;
 use App\Application\Router\Router;
+use App\Application\Views\View;
 use App\Exceptions\ViewNotFoundException;
 
 class App
@@ -14,7 +15,7 @@ class App
              $this->handle();
        } catch (ViewNotFoundException $exception)
        {
-            dd($exception->getMessage());
+            View::exception($exception);
        }
     }
 
