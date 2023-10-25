@@ -8,6 +8,7 @@ class Model extends Connection
     protected string $created_at;
     protected string $updated_at;
     protected array $fields = [];
+    protected string $table;
 
 
     public function store(): void
@@ -19,7 +20,7 @@ class Model extends Connection
             return ":$field";
         }, $this->fields));
 
-        $query = "INSERT INTO reports($columns) VALUES($binds)";
+        $query = "INSERT INTO `$this->table` ($columns) VALUES($binds)";
 
         $stmt = $this->connect()->prepare($query);
 
