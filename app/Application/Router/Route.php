@@ -10,6 +10,17 @@ class Route implements RouteInterface
     {
         self::$routes[] = [
             'uri' => $uri,
+            'type' => 'page',
+            'controller' => $controller,
+            'method' => $method
+        ];
+    }
+
+    public static function post(string $uri, string $controller, string $method) : void
+    {
+        self::$routes[] = [
+            'uri' => $uri,
+            'type' => 'post',
             'controller' => $controller,
             'method' => $method
         ];
@@ -19,4 +30,5 @@ class Route implements RouteInterface
     {
         return self::$routes;
     }
+
 }
