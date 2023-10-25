@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Models;
-use App\Application\Database\Connection;
+use App\Application\Database\Model;
 
-class Report extends Connection
+class Report extends Model
 {
-    protected int $id;
+    protected array $fields = ['email', 'subject', 'message'];
     protected string $email;
     protected string $subject;
     protected string $message;
-    protected string $created_at;
-    protected string $updated_at;
+    
 
     public function  setEmail(string $email): void
     {
@@ -41,16 +40,4 @@ class Report extends Connection
     {
         return $this->message;
     }
-
-    public function store(): void
-    {
-        $query = "INSERT INTO reports(email, subject, message) VALUES(:email, :subject, :message)";
-        $stmt = $this->connect()->prepare($query);
-        $stmt->execute([
-            'email'=> $this->email,
-            'subject'=> $this->subject,
-            'message'=> $this->message
-        ]);
-    }
-
 }
