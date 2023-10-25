@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 class ContactsController
 {
-    public function submit()
+    public function submit(array $data) :void
     {
-        echo 'Test';
+
     }
 }

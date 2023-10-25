@@ -15,16 +15,16 @@
             <div class="row mt-3">
                 <form action="\contacts" class="form" method="post">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="test@mail.ru">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Subject</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" >
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" name="subject" class="form-control" id="subject" value="Test text">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="message" class="form-label">Example textarea</label>
+                        <textarea class="form-control" name="message" id="message" rows="3">Some message</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>

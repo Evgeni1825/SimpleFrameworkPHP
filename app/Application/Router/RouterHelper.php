@@ -15,6 +15,10 @@ trait RouterHelper
     {
         $controller = new $route['controller']();
         $method = $route['method'];
-        $controller->$method();
+        if (!empty($_POST)){
+            $controller->$method($_POST);
+        } else {
+            $controller->$method();
+        }
     }
 }
