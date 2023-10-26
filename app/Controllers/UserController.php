@@ -20,4 +20,9 @@ class UserController
         $user->store();
         Redirect::to('/login');
     }
+
+    public function login(Request $request)
+    {
+        dd($request);
+    }
 }

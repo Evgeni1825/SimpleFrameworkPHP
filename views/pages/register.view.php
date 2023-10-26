@@ -33,7 +33,7 @@
                         <label for="password_confirm" class="form-label">Password confirmation</label>
                         <input type="password" name="password_confirm" class="form-control" id="password_confirm">
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </form>
             </div>
         </div>
