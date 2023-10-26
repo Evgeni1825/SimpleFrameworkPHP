@@ -9,4 +9,6 @@ interface ViewInterface
     public static function exception(\Exception $e): void;
 
     public static function component(string $component) :void;
+
+    public static function error(string $code) :void;
 }

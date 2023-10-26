@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Application\Router;
+use App\Application\Views\View;
 
 class Router implements RouterInterface
 {
@@ -16,9 +17,10 @@ class Router implements RouterInterface
         foreach($filteredRoutes as $route){
             if ($route['uri'] === $uri){
                 self::controller($route);
+                return;
             }
             
         }
-
+        View::error('404');
     }
 }

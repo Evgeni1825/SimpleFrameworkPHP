@@ -45,4 +45,10 @@ class View implements ViewInterface
         }
         include $path;
     }
+
+    public static function error(string $code) :void
+    {
+        $path = __DIR__ . "/../../../views/app/errors/$code.view.php";
+        include $path;
+    }
 }
