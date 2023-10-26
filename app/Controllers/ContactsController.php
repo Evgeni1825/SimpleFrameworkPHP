@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Application\Database\Connection;
+use App\Application\Router\Redirect;
 use App\Models\Report;
 
 class ContactsController
@@ -13,5 +14,6 @@ class ContactsController
         $report->setSubject($data['subject']);
         $report->setMessage($data['message']);
         $report->store();
+        Redirect::to('/contacts');
     }
 }
