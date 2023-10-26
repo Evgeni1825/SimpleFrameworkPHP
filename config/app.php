@@ -2,5 +2,6 @@
 
 return [
     'exception_view' => 'app/exception',
-    'lang' => 'ru'
+    'lang' => 'ru',
+    'debug' => true
 ];

@@ -15,9 +15,15 @@ class App
     {
        try {
              $this->handle();
-       } catch (ViewNotFoundException | ComponentNotFoundException $exception)
+       } catch (ViewNotFoundException | ComponentNotFoundException | \PDOException $exception)
        {
-            View::exception($exception);
+            if (Config::get('app.debug'))
+            {
+                View::exception($exception);
+            }
+            else {
+                View::error(500);
+            }
        }
     }
 
