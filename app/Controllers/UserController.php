@@ -23,6 +23,16 @@ class UserController
 
     public function login(Request $request)
     {
-        dd($request);
+        $user = (new User())->find('email', $request->post('email'));
+        if ($user){
+            if(password_verify($request->post('password'), $user['password'])){
+                dd('auth ok');
+            } else{
+                dd('incorrect password');
+            }
+        } else{
+            dd('user not found');
+        }
+        
     }
 }
