@@ -16,7 +16,7 @@
                 <h3>Register</h3>
             </div>
             <div class="row mt-3">
-                <form action="\contacts" class="form" method="post">
+                <form action="\register" class="form" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">

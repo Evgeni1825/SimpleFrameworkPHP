@@ -23,6 +23,6 @@ class User extends Model
 
     public function  setPassword(string $password): void
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
 }
