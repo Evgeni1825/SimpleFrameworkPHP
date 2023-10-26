@@ -13,20 +13,19 @@
     <?php View::component('nav'); ?>
         <div class="container">
             <div class="row mt-3">
+                <h3>Login</h3>
+            </div>
+            <div class="row mt-3">
                 <form action="\contacts" class="form" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="test@mail.ru">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                     </div>
                     <div class="mb-3">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" name="subject" class="form-control" id="subject" value="Test text">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="password">
                     </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Example textarea</label>
-                        <textarea class="form-control" name="message" id="message" rows="3">Some message</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </div>
