@@ -33,4 +33,11 @@ class PagesController
             'title'=>'Login'
         ]);
     }
+
+    public function register() :void
+    {
+        View::show('pages/register',[
+            'title'=>'Register'
+        ]);
+    }
 }
