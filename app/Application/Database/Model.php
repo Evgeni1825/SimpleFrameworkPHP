@@ -61,8 +61,8 @@ class Model extends Connection implements ModelInterface
             return "`$item`= :$item";
         }, $keys);
         $updatedFields = implode(', ', $fields);
-        $query = "UPDATE `$this->table` SET $updatedFields WHERE `users`.`id`=:id";
-        //dd($query);
+        $query = "UPDATE `$this->table` SET $updatedFields WHERE `$this->table`.`id`=:id";
+
         $stmt = $this->connect()->prepare($query);
         $data['id'] = $this->id;
         $stmt->execute($data);

@@ -30,12 +30,15 @@ class UserController
             if(password_verify($request->post('password'), $user->getPassword())){
                 $token = Random::str(50);
                 $user->update(['token'=>$token]);
-                dd('auth ok', );
+                setcookie('token',$token);
+                Redirect::to('/login');
             } else{
                 dd('incorrect password');
+                Redirect::to('/login');
             }
         } else{
             dd('user not found');
+            Redirect::to('/login');
         }
         
     }
