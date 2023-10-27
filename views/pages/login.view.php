@@ -1,6 +1,7 @@
 <?php
     use App\Application\Views\View;
     use App\Application\Config\Config;
+    dd(\App\Application\Auth\Auth::check());
 ?>
 <!DOCTYPE html>
 <html lang="<?= Config::get('app.lang')?>">
