@@ -27,7 +27,7 @@ class UserController
         $user = (new User())->find('email', $request->post('email'));
         dd($user);
         if ($user){
-            if(password_verify($request->post('password'), $user['password'])){
+            if(password_verify($request->post('password'), $user->getPassword())){
                 dd('auth ok', Random::str(50));
             } else{
                 dd('incorrect password');
