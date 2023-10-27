@@ -9,13 +9,27 @@ class Model extends Connection implements ModelInterface
     protected string $updated_at;
     protected array $fields = [];
     protected string $table;
+    protected array $collection = [];
 
-    public function find(string $column, mixed $value, bool $many = false): array|bool
+    public function find(string $column, mixed $value, bool $many = false): array|bool|Model
     {
         $query = " SELECT * FROM `$this->table` WHERE `$column` = :$column";
         $stmt = $this->connect()->prepare($query);
         $stmt->execute([$column => $value]);
-        return $many ? $stmt->fetchAll(\PDO::FETCH_ASSOC) : $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if($many)
+        {
+            $this->collection = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $this->collection;
+        } else {
+            $entity = $stmt->fetch(\PDO::FETCH_ASSOC);
+            foreach ($entity as $key=>$value)
+            {
+                $this->$key = $value;
+            }
+            return $this;
+        }
+        
     }
 
 

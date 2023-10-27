@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Application\Helpers\Random;
 use App\Application\Router\Redirect;
 use App\Application\Views\View;
 use App\Models\User;
@@ -24,9 +25,10 @@ class UserController
     public function login(Request $request)
     {
         $user = (new User())->find('email', $request->post('email'));
+        dd($user);
         if ($user){
             if(password_verify($request->post('password'), $user['password'])){
-                dd('auth ok');
+                dd('auth ok', Random::str(50));
             } else{
                 dd('incorrect password');
             }
