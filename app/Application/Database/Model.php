@@ -23,11 +23,14 @@ class Model extends Connection implements ModelInterface
             return $this->collection;
         } else {
             $entity = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if (!$entity){
+                return false;
+            }
             foreach ($entity as $key=>$value)
             {
                 $this->$key = $value;
             }
-            return $this;//$entity;
+            return $this;
         }
         
     }
