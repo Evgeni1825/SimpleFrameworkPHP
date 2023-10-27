@@ -25,10 +25,12 @@ class UserController
     public function login(Request $request)
     {
         $user = (new User())->find('email', $request->post('email'));
-        dd($user);
+
         if ($user){
             if(password_verify($request->post('password'), $user->getPassword())){
-                dd('auth ok', Random::str(50));
+                $token = Random::str(50);
+                $user->update(['token'=>$token]);
+                dd('auth ok', );
             } else{
                 dd('incorrect password');
             }

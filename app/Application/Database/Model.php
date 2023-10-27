@@ -27,7 +27,7 @@ class Model extends Connection implements ModelInterface
             {
                 $this->$key = $value;
             }
-            return $this;
+            return $this;//$entity;
         }
         
     }
@@ -53,4 +53,19 @@ class Model extends Connection implements ModelInterface
         $stmt->execute($params);
     }
 
+    public function update(array $data): void
+    {
+        $keys = array_keys($data);
+
+        $fields = array_map(function ($item){
+            return "`$item`= :$item";
+        }, $keys);
+        $updatedFields = implode(', ', $fields);
+        $query = "UPDATE `$this->table` SET $updatedFields WHERE `users`.`id`=:id";
+        //dd($query);
+        $stmt = $this->connect()->prepare($query);
+        $data['id'] = $this->id;
+        $stmt->execute($data);
+
+    }
 }
