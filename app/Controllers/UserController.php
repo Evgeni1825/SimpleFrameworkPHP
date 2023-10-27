@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Application\Helpers\Random;
 use App\Application\Router\Redirect;
-use App\Application\Views\View;
 use App\Models\User;
 use App\Application\Request\Request;
+use App\Application\Auth\Auth;
 
 class UserController
 {
@@ -29,8 +29,8 @@ class UserController
         if ($user){
             if(password_verify($request->post('password'), $user->getPassword())){
                 $token = Random::str(50);
-                $user->update(['token'=>$token]);
-                setcookie('token',$token);
+                $user->update([Auth::getTokenColumn()=>$token]);
+                setcookie(Auth::getTokenColumn(),$token);
                 Redirect::to('/login');
             } else{
                 dd('incorrect password');
