@@ -10,7 +10,7 @@ class Auth implements AuthInterface
 {
     protected static $model;
     protected static $user;
-    protected static string $token;
+    protected static ?string $token;
     protected static string $tokenColumn;
 
     public static function init() :void

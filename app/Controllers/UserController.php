@@ -40,6 +40,12 @@ class UserController
             dd('user not found');
             Redirect::to('/login');
         }
-        
+    }
+
+    public function logout()
+    {
+        unset($_COOKIE[Auth::getTokenColumn()]);
+        setcookie(Auth::getTokenColumn(), NULL);
+        Redirect::to('/login');
     }
 }
