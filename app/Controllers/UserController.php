@@ -12,8 +12,13 @@ class UserController
 {
     public function register(Request $request)
     {
-        // TODO Validation
-
+        $request->validation([
+            'email'=>['required','email'],
+            'name'=>['required']
+        ]);
+        if (!$request->validationStatus()){
+            dd($request->validationErrors());
+        }
         $user = new User();
         $user->setEmail($request->post('email'));
         $user->setName($request->post('name'));
