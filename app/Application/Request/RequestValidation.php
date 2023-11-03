@@ -2,6 +2,8 @@
 
 namespace App\Application\Request;
 
+use App\Application\Alerts\Error;
+
 trait RequestValidation
 {
     private array $errors = [];
@@ -20,10 +22,15 @@ trait RequestValidation
                             $this->errors[$key][] = 'Email is not correct.';
                         }
                         break;
+                    case 'password_confirm':
+                       if($data[$key] != $data['password_confirm']){
+                           $this->errors[$key][] = 'Passwords mismatch.';
+                       };
+                        break;
                 }
             }
-
         }
+        Error::store($this->errors);
         return $this->errors;
     }
 

@@ -14,11 +14,13 @@ class UserController
     {
         $request->validation([
             'email'=>['required','email'],
-            'name'=>['required']
+            'name'=>['required'],
+            'password'=>['required','password_confirm']
         ]);
         if (!$request->validationStatus()){
-            dd($request->validationErrors());
+           Redirect::to('/register');
         }
+
         $user = new User();
         $user->setEmail($request->post('email'));
         $user->setName($request->post('name'));
