@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Application\Alerts\Alert;
 use App\Application\Helpers\Random;
 use App\Application\Router\Redirect;
 use App\Models\User;
@@ -31,6 +32,15 @@ class UserController
 
     public function login(Request $request)
     {
+        $request->validation([
+            'email'=>['required','email'],
+            'password'=>['required']
+        ]);
+
+        if (!$request->validationStatus()){
+            Alert::storeMessage('Login or password incorrect', 'danger');
+            Redirect::to('/login');
+        }
         $user = (new User())->find('email', $request->post('email'));
 
         if ($user){
@@ -40,11 +50,11 @@ class UserController
                 setcookie(Auth::getTokenColumn(),$token);
                 Redirect::to('/login');
             } else{
-                dd('incorrect password');
+                Alert::storeMessage('Incorrect password.', 'danger');
                 Redirect::to('/login');
             }
         } else{
-            dd('user not found');
+            Alert::storeMessage('User not found.', 'danger');
             Redirect::to('/login');
         }
     }
